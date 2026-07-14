@@ -1,30 +1,9 @@
 # occskills
 
-Analysis of occupational skill demands and how they are shifting under AI adoption, using Lightcast job postings data.
+One notebook, `OccProfiles.ipynb`. It looks at how the skills that occupations ask for have moved over 2018-2023, and takes a first swing at where they're heading.
 
-The project maps skill requirements across SOC occupations over time to identify which skills are gaining or losing share within occupations, which occupations are most exposed to AI-driven task substitution, and where reskilling investments are best placed. This feeds into broader workforce planning and labor market policy work.
+The data is Lightcast skill exports, split by skill type (software, common, specialized, defining, distinguishing, and so on). It's not in the repo. The notebook reads a handful of CSVs off local paths, so if you want to run it you'll need to point those at wherever your own copies sit.
 
-## Data
+Rough order of things: clean the raw exports, build a profile per occupation, plot the skill trends and how the type mix shifts, then put posting demand next to growth projections to see where they agree and where they don't. The last two sections, a short forecast and some automation scenarios, are unfinished and marked as such.
 
-Source data is Lightcast's occupational skill demand database (not included in this repository). The notebooks expect a cleaned extract in `data/`.
-
-## Contents
-
-```
-occskills/
-├── notebooks/    # Analysis and charts by occupation group
-├── src/          # Skill extraction and trend analysis modules
-└── data/         # Input data (not committed)
-```
-
-## Setup
-
-```bash
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-## Related work
-
-The skill shift analysis here informs the occupational demand forecasting in [`supply-demand-model`](https://github.com/conway1521/supply-demand-model).
+Mostly pandas and the usual plotting stack. Nothing to install beyond that.
